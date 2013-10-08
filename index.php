@@ -119,8 +119,7 @@
 include('login.php');
 
 
-$url = "http://photos.rosie.fr/photos/";
-//$url = "http://localhost/diapo/photos/";
+$url = "http://host/photos/";
 $Directory = dirname(__FILE__)."/photos";
 $MyDirectory = opendir($Directory) or die('Erreur');
 $img = array();
@@ -144,7 +143,7 @@ krsort($img);
 	<div id="controls" class="controls"></div>
 		<div id="page">
 			<div id="container">
-				<h1><a href="index.php">Notre petite Rosie <span class="rosy">^^</span></a></h1>
+				<h1><a href="index.php">DIAPORAMA NAME <span class="rosy">^^</span></a></h1>
 				<div id="nav">
 				<?php 
 				$page = (isset($_GET['p']))?$_GET['p']:0;
