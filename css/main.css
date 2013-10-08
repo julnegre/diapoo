@@ -1,0 +1,142 @@
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Infinite Scroll ****/
+
+#infscr-loading {
+  position: fixed;
+  text-align: center;
+  bottom: 30px;
+  left: 42%;
+  z-index: 100;
+  background: white;
+  background: hsla( 0, 0%, 100%, 0.9 );
+  padding: 20px;
+  color: #222;
+  font-size: 15px;
+  font-weight: bold;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+/* End: Recommended Isotope styles */
+
+
+
+/* disable CSS transitions for containers with infinite scrolling*/
+.isotope.infinite-scrolling {
+  -webkit-transition: none;
+     -moz-transition: none;
+      -ms-transition: none;
+       -o-transition: none;
+          transition: none;
+}
+
+
+body * {background:black!important;color:#81BEF7;font-family: 'Alef', sans-serif;}
+#thumbs div{display:inline}
+#container{background:black}
+#container {margin-left:100px}
+#container .thumb {padding:10px}
+#indic {z-index:20000;background:gray!important;padding:5px;color:white;position:fixed;left:4px;width:90px;bottom:6%;border-radius: 10px;}
+.save {margin-left:-20px;}
+#nav {padding:20px;}
+#nav span {font-size:14px;padding-left:5px;width:25px;display:inline-block}
+#nav .selected a {font-size:22px;color:red;font-weight:bold}
+#page_next {position:absolute;top:80px;right:20px}
+#sb_nav{background:gray!important}
+#login {width:100%;height:100%;position:absolute;top:0;left:0;padding-top:150px}
+form {text-align:right;width:300px;margin:auto;top:200px;display:block;padding:50px;}
+.shadow {border:1px solid gray;
+-moz-box-shadow:0px 0px 15px 3px rgba(119, 119, 119, 0.51);
+-webkit-box-shadow:0px 0px 15px 3px rgba(119, 119, 119, 0.51);
+box-shadow:0px 0px 15px 3px rgba(119, 119, 119, 0.51);}
+/** loading **/
+#loading-full {background:black;position:fixed;width:100%;height:100%;left:0px;top:0px;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+filter: alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity: 0.2;opacity: 0.2;
+z-index:10000;display:none
+}
+.loading-ball {
+        position:fixed;left:45%;top:50%;display:none;z-index:9;
+	background-color: rgba(0,0,0,0);
+	border:5px solid rgba(0,183,229,0.9);
+	opacity:.9;
+	border-top:5px solid rgba(0,0,0,0);
+	border-left:5px solid rgba(0,0,0,0);
+	border-radius:50px;
+	box-shadow: 0 0 35px #2187e7;
+	width:50px;
+	height:50px;
+	margin:0 auto;
+	-moz-animation:spin .5s infinite linear;
+	-webkit-animation:spin .5s infinite linear;
+}
+
+@-moz-keyframes spin {
+	0% { -moz-transform:rotate(0deg); }
+	100% { -moz-transform:rotate(360deg); }
+}
+@-moz-keyframes spinoff {
+	0% { -moz-transform:rotate(0deg); }
+	100% { -moz-transform:rotate(-360deg); }
+}
+@-webkit-keyframes spin {
+	0% { -webkit-transform:rotate(0deg); }
+	100% { -webkit-transform:rotate(360deg); }
+}
+@-webkit-keyframes spinoff {
+	0% { -webkit-transform:rotate(0deg); }
+	100% { -webkit-transform:rotate(-360deg); }
+}
+/** ***************** **/
+.rosy {color:#FE0DE5}
