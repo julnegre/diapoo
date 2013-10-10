@@ -1,5 +1,5 @@
 <?php
-$url = "http://photos.rosie.fr/photos/";
+$url = "http://host/photos/";
 //$url = "http://localhost/diapo/photos/";
 $Directory = dirname(__FILE__)."/photos";
 $MyDirectory = opendir($Directory) or die('Erreur');
