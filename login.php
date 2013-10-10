@@ -1,8 +1,8 @@
 <?php
 
-if(isset($_POST['email'], $_POST['p']) || !login_check($mysqli) ) { 
+if(isset($_POST['email'], $_POST['password']) || !login_check($mysqli) ) { 
    $email = $_POST['email'];
-   $password = $_POST['p']; // The hashed password.
+   $password = $_POST['password']; // The hashed password.
    if(login($email, $password, $mysqli) == true) {
       // Login success
       //echo 'Success: You have been logged in!';
