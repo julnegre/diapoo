@@ -1,5 +1,41 @@
 <?php
-$url = "http://host/photos/";
+
+// demo only *******************************************************************
+function generateFixture($img){
+    $content="";
+    foreach( range(0,22) as $kk ){
+        foreach( $img as $k => $i ){	
+                       // ((int)($_GET['p'].$id))
+                       if( isset($i["video"]) )
+                           $content.= '
+                           <div class="element">
+                                   <a rel="gallery-1" href="'.$i["video"].'" title="'.$k.' - '.($id+1)."/".$nb.'" tt="'.$i["video"].'"  class="swipebox">
+                                           <img src="css/play.png" alt="'.$k.'" class="thumb" height="150px" />
+                                   </a>
+                                   <a href="'.$i["video"].'" target="_blank" class="save">
+                                           <img src="css/disk.png" title="Enregistrer" alt="Enregistrer"/>
+                                   </a>
+                           </div>';			
+                       else 
+                           $content.= '
+                           <div class="element">
+                                   <a rel="gallery-1" href="'.$i["small"].'?d='.time().'" title="'.$k.' - '.($id+1)."/".$nb.'" tt="'.$i["small"].'"  class="swipebox">
+                                           <img src="'.$i["too_small"].'?d='.time().'" alt="'.$k.'" class="thumb" height="150px" />
+                                   </a>
+                                   <a href="'.$i["normal"].'" target="_blank" class="save">
+                                           <img src="css/disk.png" title="Enregistrer" alt="Enregistrer"/>
+                                   </a>
+                           </div>';
+
+            $id++;
+        }   
+    }
+    return $content;
+}
+// demo only *******************************************************************
+
+
+$url = "http://julnegre.fr/diapoo/photos/";
 //$url = "http://localhost/diapo/photos/";
 $Directory = dirname(__FILE__)."/photos";
 $MyDirectory = opendir($Directory) or die('Erreur');
@@ -22,34 +58,38 @@ krsort($img);
 		
 $id=0;		
 $page = (isset($_GET['p']))?$_GET['p']:0;
-$perpage = 15;	
-$max = round(count($img)/$perpage)-1;		
+$perpage = 25;	
+$nb = count($img);
+$max = round($nb/$perpage)-1;		
 foreach( $img as $k => $i ){	
 	if( $id >= ($page*$perpage) && $id < ($page+1)*$perpage){	
 		// ((int)($_GET['p'].$id))
 		if( isset($i["video"]) )
-		echo '
-		<div class="element">
-			<a rel="shadowbox['.$_GET['p'].'];player=iframe" href="'.$i["video"].'" title="'.$k.'" tt="'.$i["video"].'">
-				<img src="css/play.png" alt="'.$k.'" class="thumb" height="150px" />
-			</a>
-			<a href="'.$i["video"].'" target="_blank" class="save">
-				<img src="css/disk.png" title="Enregistrer" alt="Enregistrer"/>
-			</a>
-		</div>';			
-		
+                    echo '
+                    <div class="element">
+                            <a rel="gallery-1" href="'.$i["video"].'" title="'.$k.' - '.($id+1)."/".$nb.'" tt="'.$i["video"].'"  class="swipebox">
+                                    <img src="css/play.png" alt="'.$k.'" class="thumb" height="150px" />
+                            </a>
+                            <a href="'.$i["video"].'" target="_blank" class="save">
+                                    <img src="css/disk.png" title="Enregistrer" alt="Enregistrer"/>
+                            </a>
+                    </div>';			
 		else 
-		echo '
-		<div class="element">
-			<a rel="shadowbox['.$_GET['p'].']" href="'.$i["small"].'" title="'.$k.'" tt="'.$i["small"].'">
-				<img src="'.$i["too_small"].'" alt="'.$k.'" class="thumb" height="150px" />
-			</a>
-			<a href="'.$i["normal"].'" target="_blank" class="save">
-				<img src="css/disk.png" title="Enregistrer" alt="Enregistrer"/>
-			</a>
-		</div>';
+                    echo '
+                    <div class="element">
+                            <a rel="gallery-1" href="'.$i["small"].'?d='.time().'" title="'.$k.' - '.($id+1)."/".$nb.'" tt="'.$i["small"].'"  class="swipebox">
+                                    <img src="'.$i["too_small"].'?d='.time().'" alt="'.$k.'" class="thumb" height="150px" />
+                            </a>
+                            <a href="'.$i["normal"].'" target="_blank" class="save">
+                                    <img src="css/disk.png" title="Enregistrer" alt="Enregistrer"/>
+                            </a>
+                    </div>';
 	}						
 	$id++;
 }
+
+// demo only ******************************************************************* 
+echo generateFixture($img);
+// demo only *******************************************************************
 ?>
 					

@@ -1,125 +1,147 @@
 <?php include('funcs.php'); ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-	<head>
+<html>
+    <head>
 		<meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0" name="viewport">
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<meta name="robots" content="none" />
 		<meta http-equiv="Cache-control" content="public" />
-		<title>Notre petite Rosie ^^</title>
+		<title>Diapoo demo ^^</title>
 		<link rel="shortcut icon" href="favicon.ico" />
 		<link rel="icon" type="image/x-icon" href="favicon.ico" />
 		<link rel="icon" type="image/png" href="favicon.png" />		
-		<link rel="stylesheet prefetch" media="screen" href="css/main.css" type="text/css" />
-		<link rel="stylesheet prefetch" media="screen" href="css/basic.css" type="text/css" />
-		<link rel="stylesheet prefetch" media="screen" href="css/shadowbox.css" type="text/css" />
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.isotope.js"></script>
-		<script type="text/javascript" src="js/shadowbox.js"></script>
-		<script type="text/javascript" src="js/detect-mobile.js"></script>
-		<script type="text/javascript" src="js/jquery.scrollto.js"></script>
-		<script type="text/javascript">document.write('<style>.noscript { display: none; }</style>');</script>
-		<link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
-		<script type="text/javascript">
-			/* <![CDATA[ */
-			  $(document).ready(function() {
-				$("form").submit(function(){
-					$("#loading-full,.loading-ball").fadeIn();
-				});
-				$("#loading-full,.loading-ball").hide();
-				if(jQuery.browser.mobile){
-				  
-				  $("#indic").hide();
-				  var viewportWidth = $(window).width();
-				  var viewportHeight = $(window).height();
-				  $("body").css("width",viewportWidth);
-				  $("#container").css("margin-left","0");
-				  $("#login").css("width",viewportWidth);
-				  $("#login form").css("width",viewportWidth-50);
-				  $("#nav").css("position","absolute").css("right","3px").css("width","30px").css("height",$(document).heigth+"px").addClass("shadow").css("top","0px");
-				  $("#nav span").css("padding-left","5px").css("padding-top","20px").css("font-size","23px");
-				  $("#nav .selected a").css("font-size","30px");
-				  $("#nav .selected").css("background-color","#C6B7B7"); 
-				  //$("#nav").css("height",$("#nav").innerHeight()+"px"); 
-				  $("#nav span a").click(function(){$.scrollTo(0,800);}) 
-				  $("#nav").css("overflow-y","auto")
-				
-				}
-				
-				$("#indic").click(function(){hideIndic();})	
+        <link rel="stylesheet prefetch" media="screen" href="css/main.css" type="text/css" />
+        <link rel="stylesheet prefetch" media="screen" href="css/basic.css" type="text/css" />
+        <link rel="stylesheet" href="css/swipebox.css">
+        <link href='http://fonts.googleapis.com/css?family=Alef' rel='stylesheet' type='text/css'>
 
-			});	
-			
-			function hideIndic(){
-				$("#indic").fadeOut('slow'); $("#container").css("margin-left","0");
-				clearTimeout(indic)
-			}
-			function getShadowBox(){
-				Shadowbox.init({ skipSetup: true,handleUnsupported:  "remove",autoplayMovies:     true }); 
-				//Shadowbox.setup('a[rel="shadowbox"]',{handleOversize: "resize"});	
-				Shadowbox.setup();
-			}
-			
-			function getDiap(p){
-				$(".loading-ball,#loading-full").fadeIn('slow');
-				$("#nav span").removeClass("selected");
-				$("#nav span").eq(parseFloat(p)).addClass("selected")
-				//$('#thumbs').fadeOut();
-				//$('#thumbs').hide();
-				$.get('page.php?p='+p, function(data) {
-				//if( p=="0")	
-				  $('#thumbs').html(data);
-				  getShadowBox();
-				  $.scrollTo(0,800);
-				  $(".loading-ball,#loading-full").fadeOut('slow');
-				  /*
-				  var $dat = $(data)
-					var $container = $('#thumbs');
-						$container.imagesLoaded( function(){
-							//$('#thumbs').fadeIn('slow');
-							if( p=="0"){
-							// TODO tester si isotope initialisé
-							$container.isotope({
-									  itemSelector : '.thumb',
-									  animationEngine: 'css',
-									  
-									   masonry: {
-										columnWidth: 0
-									  },
-									  
-									  sortBy: 'original-order'
-									});
-									
-							} else {		
-								
-								 var $firstTwoElems = $container.data('isotope')
-								  .$filteredAtoms.filter( function( i ) {
-									return i < 15;
-								  });
-								$container.isotope( 'remove', $firstTwoElems, function() {
-									// console.log('items removed')
-								  });
-								$container.isotope( 'insert', $dat );
-							}
-							var $oldDat =$($('#thumbs').html());	
-									//$container.isotope('shuffle');
-									getShadowBox();
-						});
-				*/
-				});  	     
-			}	
-			/* ]]> */
-		</script>	
-	</head>
-	<body>
+        <script src="/js/vendor/custom.modernizr.js"></script>    
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.isotope.js"></script>
+        <script type="text/javascript" src="js/jquery.swipebox.js"></script>
+        <script src="js/ios-orientationchange-fix.js"></script>
+        <script type="text/javascript" src="js/jquery.scrollto.js"></script>
+   
+        <script type="text/javascript">
+            /* <![CDATA[ */
+            $(document).ready(function() {
+                $("form").submit(function() {
+                    $("#loading-full,.loading-ball").fadeIn();
+                });
+                $("#loading-full,.loading-ball").hide();
+
+                $("#indic").click(function() {
+                    hideIndic();
+                })
+
+                lastPostFunc();
+
+                $(window).scroll(function() {
+                    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                        lastPostFunc();
+                    }
+                });
+                indic = setTimeout("hideIndic()", 7000)
+
+            });
+
+            var load = true;
+            function lastPostFunc() {
+                if (!load)
+                    return;
+                load = false;
+                //$("#loading-full,.loading-ball").fadeIn();
+                $(".thumb:last").fadeTo("slow", 0.3);
+                $(".thumb:last").addClass("rotate");
+                var url = "";
+                if ($(".thumb").length != 0)
+                    url = "page.php?p=" + (($(".thumb").length / 25));
+                else {
+                    url = "page.php?p=0";
+                    $("#loading-full,.loading-ball").fadeIn();
+                }
+                $.get(url,
+                        function(data) {
+                            $(".thumb:last").removeClass("rotate")
+                            $(".thumb:last").fadeTo("slow", 1);
+                            //if (data != "")
+                            //$('#thumbs').append( $(data) ).isotope( 'addItems', $(data) );
+                            //$("#thumbs").isotope( 'appended', $( data ) ); 
+
+                            if (data != "") {
+                                if ($(".thumb").length != 0)
+                                    $(".thumb:last").after(data);
+                                else {
+                                    $("#thumbs").html(data);
+                                    $("#loading-full,.loading-ball").fadeOut();
+                                }
+                            }
+                            getSwipeBox();
+                            load = true;
+                        });
+            }
+            ;
+
+            function hideIndic() {
+                $("#indic").fadeOut('slow');
+                $("#container").css("margin-left", "0");
+                clearTimeout(indic)
+            }
+            var swipeboxinstance = null;
+            function getSwipeBox() {
+                swipeboxinstance = null;
+
+                if ($("#swipebox-overlay").length > 0)
+                    return;
+                
+                swipeboxinstance = $(".swipebox").swipebox({
+                    //useCSS : true, // false will force the use of jQuery for animations
+                    hideBarsDelay: 0, // 0 to always show caption and action bar
+                    //videoMaxWidth : 1140, // videos max width
+                    beforeOpen: function() {
+                        if ($("#swipebox-overlay").length > 0)
+                            $("#swipebox-overlay").remove();
+                    }, // called before opening
+                    afterClose: function() {
+                    } // called after closing
+                });
+
+            }
+
+            /* ]]> */
+        </script>	
+        <style>
+            .rotate {                       
+                -moz-animation:spin .5s infinite linear;
+                -webkit-animation:spin .5s infinite linear;
+            }                        
+            @-moz-keyframes spin {
+                0% { -moz-transform:rotate(0deg); }
+                100% { -moz-transform:rotate(360deg); }
+            }
+            @-moz-keyframes spinoff {
+                0% { -moz-transform:rotate(0deg); }
+                100% { -moz-transform:rotate(-360deg); }
+            }
+            @-webkit-keyframes spin {
+                0% { -webkit-transform:rotate(0deg); }
+                100% { -webkit-transform:rotate(360deg); }
+            }
+            @-webkit-keyframes spinoff {
+                0% { -webkit-transform:rotate(0deg); }
+                100% { -webkit-transform:rotate(-360deg); }
+            }
+
+        </style>                    
+    </head>
+    <body>
 		
 <?php
 
 include('login.php');
 
 
-$url = "http://host/photos/";
+$url = "http://julnegre.fr/diapoo/";
+//$url = "http://localhost/diapo/photos/";
 $Directory = dirname(__FILE__)."/photos";
 $MyDirectory = opendir($Directory) or die('Erreur');
 $img = array();
@@ -143,21 +165,7 @@ krsort($img);
 	<div id="controls" class="controls"></div>
 		<div id="page">
 			<div id="container">
-				<h1><a href="index.php">DIAPORAMA NAME <span class="rosy">^^</span></a></h1>
-				<div id="nav">
-				<?php 
-				$page = (isset($_GET['p']))?$_GET['p']:0;
-				$perpage = 15;	
-				$max = round(count($img)/$perpage)-1;
-				foreach( range(0,$max)  as $pg){
-
-					echo "<span class=\"\"><a href=\"javascript:getDiap('".$pg."')\" >".$pg."</a></span>";
-					if( $pg%15==0 )echo "<br/>";
-					//if($page!=$max)
-					//echo '<div id="page_next"><a href="index.php?p='.($page+1).'">Photos suivantes </a></div>';
-				}
-				?>
-				</div>
+				<h1><a href="index.php">Diapoo demo <span class="rosy">^^</span></a></h1>
 				<div id="thumbs" class="navigation"></div>
 			</div>
 		</div>
@@ -165,5 +173,5 @@ krsort($img);
 	<div id="indic">Cliquez sur une des photos pour lancer le diaporama. Appuyez sur les touches droite / gauche pour vous déplacer dans le diaporama (ou à l'aide des icônes sous la photo) et/ou appuyez sur la touche "Echap" pour fermer la photo.</div>
 	<div id="loading-full"></div><div class="loading-ball"></div>
 	</body>
-	<script type="text/javascript">$(function(){getDiap('0');indic=setTimeout("hideIndic()",7000)});</script>	
+	<script type="text/javascript">$(function(){indic=setTimeout("hideIndic()",7000)});</script>	
 </html>
