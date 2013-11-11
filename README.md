@@ -14,6 +14,7 @@ Light Diaporama
 @TODO 
 - fix video with firefox
 - minimal administration mode : create user, upload photos
+- refresh scroll gallery in lightbox mode when we arrive at the end
 
 Demo at :
 --------
